@@ -1,4 +1,4 @@
-# Phase 16 — Real-World Use Cases
+# Phase 15 — Real-World Use Cases
 
 Field-facing scenarios and the decision logic behind architecture choices.
 
@@ -55,8 +55,8 @@ justification:
 - Note the top trade-off and the smell you avoided
 
 Verify: your brief names trade-offs and defends the API choice with requirements —
-the way a cert scenario expects.
+the way a solution-architecture review expects.
 
 ## Repo Artifacts to Open
 
-- `docs/assets/answers.js` — `C16EX1` model brief
+- `docs/assets/answers.js` — `C15EX1` model brief

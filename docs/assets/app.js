@@ -136,7 +136,7 @@ function renderSidebar() {
   aside.innerHTML = `
     <div class="side-brand">
       <div class="logo">☁️</div>
-      <div><b>Headless & MCP Academy</b><span>17-phase roadmap</span></div>
+      <div><b>Headless & MCP Academy</b><span>16-phase roadmap</span></div>
     </div>`;
 
   const nav = document.createElement('nav');
@@ -209,7 +209,7 @@ function renderHome() {
         <div class="hero-actions">
           <button class="btn primary" id="startBtn">${next ? '▶ Continue learning' : '🎉 Restart'}</button>
           <button class="btn ghost" id="phasesBtn">Browse all phases</button>
-          <span class="hero-meta">📅 17 phases · self-paced</span>
+          <span class="hero-meta">📅 16 phases · self-paced</span>
         </div>
       </div>
       <div class="ring-wrap">

@@ -21,7 +21,7 @@ Storefront Reference Architecture (SFRA) pages.
 | Promotions | promotions list | Apply at cart |
 | Shopper | shopper resources | AuthNZ for the shopper |
 
-For the certification, know the difference:
+Know the difference:
 
 - **Hosted checkout** — the payment page stays on Commerce Cloud.
 - **Headless checkout** — you call payment service provider APIs yourself (more

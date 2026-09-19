@@ -73,7 +73,7 @@ client layer.
 
 ## Choosing the Right API
 
-Different jobs call for different APIs. This matching table is exam gold — learn
+Different jobs call for different APIs. This matching table is architect gold — learn
 to run it **in reverse** (scenario → API).
 
 | Need | Best-fit API |

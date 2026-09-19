@@ -1,4 +1,4 @@
-# Phase 17 — Use Case Solutions
+# Phase 16 — Use Case Solutions
 
 Canonical answers for every use case, with acceptance criteria and reusable
 reasoning.
@@ -46,7 +46,7 @@ deltas.
 
 ## Exercise — Grade Your Own Brief
 
-- Compare your Phase 16 brief to the canonical solution
+- Compare your Phase 15 brief to the canonical solution
 - List where your brief disagrees (if any)
 - Rewrite the justification incorporating the feedback
 
@@ -55,4 +55,4 @@ first draft.
 
 ## Repo Artifacts to Open
 
-- `docs/assets/answers.js` — `C17EX1` model self-audit
+- `docs/assets/answers.js` — `C16EX1` model self-audit

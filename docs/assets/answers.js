@@ -1,6 +1,6 @@
 /* ============================================================================
  * Exercise & mini-project answers for the interactive UI ("Show answer").
- * Each key is an exercise block id declared in curriculum.js (C1EX1 … C17EX1).
+ * Each key is an exercise block id declared in curriculum.js (C1EX1 … C16EX1).
  * Bodies use markdown; inline code and fences are escaped so template
  * literals always parse.
  * ============================================================================ */
@@ -296,7 +296,7 @@ await server.connect(transport);
 - Hardcoding tokens in the server (use env vars / Salesforce-hosted mediation).`,
   },
 
-  "C14EX1": {
+  "C13EX1": {
     title: "Mini project strategy — answer",
     body: `**Pick MP1 = "Health score widget"** (small, observable, all layers):
 \`\`\`text
@@ -314,7 +314,7 @@ await server.connect(transport);
 - No test class → can't prove behavior.`,
   },
 
-  "C16EX1": {
+  "C15EX1": {
     title: "Real-world use case — answer",
     body: `**Use case: insurance claims app needs live account + health data on mobile.**
 \`\`\`text
@@ -331,7 +331,7 @@ Client  ->  GET /services/data/v68.0/graphql   (nested account + contacts, 1 cal
 - Leaving confidential fields exposed without FLS + maybeAuth on the API call.`,
   },
 
-  "C17EX1": {
+  "C16EX1": {
     title: "Use-case solution walkthrough — answer",
     body: `**Compare against the canonical in the phase guide:**
 \`\`\`text

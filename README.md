@@ -14,7 +14,7 @@ An interactive, self-paced learning app for **Salesforce Headless and MCP** — 
 - [The big picture](#the-big-picture)
 - [Try it](#try-it)
 - [Run locally](#run-locally)
-- [The 17-phase roadmap](#the-17-phase-roadmap)
+- [The 16-phase roadmap](#the-16-phase-roadmap)
 - [Repository structure](#repository-structure)
 - [Inside the interactive app](#inside-the-interactive-app)
   - [How it works](#how-it-works)
@@ -24,7 +24,6 @@ An interactive, self-paced learning app for **Salesforce Headless and MCP** — 
   - [Custom objects](#custom-objects)
   - [Apex services](#apex-services)
   - [Triggers](#triggers)
-  - [Custom metadata](#custom-metadata)
 - [Deploy to an org](#deploy-to-an-org)
 - [Consistency checks](#consistency-checks)
 
@@ -34,7 +33,7 @@ An interactive, self-paced learning app for **Salesforce Headless and MCP** — 
 
 This repo has two halves that reinforce each other:
 
-1. **`docs/` — the learning app.** A hand-rolled single-page app (`index.html` + `app.js`) with 17 phases, 61 lessons, 47 quiz questions, 15 hands-on exercise/project cards, and 17 full markdown guides. It runs entirely in the browser — no build step, no server, no framework, no dependencies.
+1. **`docs/` — the learning app.** A hand-rolled single-page app (`index.html` + `app.js`) with 16 phases, 58 lessons, 44 quiz questions, 15 hands-on exercise/project cards, and 16 full markdown guides. It runs entirely in the browser — no build step, no server, no framework, no dependencies.
 2. **`force-app/` — real Salesforce metadata.** The modules teach a topic, then point you at *actual deployable metadata* in this repo via artifact links: Apex classes, platform events, external objects, custom metadata, scratch-org-friendly objects and triggers that match what the lessons explain.
 
 You study online, then recreate the patterns in your own org using the shipped metadata as ground truth.
@@ -66,7 +65,7 @@ npx serve docs
 
 > Note: the full guide pages fetch `.md` files at runtime (`docs/guide/*.md`). On the published site this works out of the box; when opening `index.html` directly from disk, a plain static server avoids browser-specific `file://` fetch restrictions.
 
-## The 17-phase roadmap
+## The 16-phase roadmap
 
 | # | Phase | Lessons | Quiz | Artifacts |
 |---|-------|:-------:|:----:|:---------:|
@@ -82,12 +81,11 @@ npx serve docs
 | 10 | Serverless & App Platform | 3 | 2 | 2 |
 | 11 | MCP Fundamentals | 4 | 3 | 3 |
 | 12 | Build MCP Servers | 4 | 3 | 3 |
-| 13 | Cert Prep - Headless Architect | 3 | 3 | 3 |
-| 14 | Practical Exercises | 3 | 2 | 2 |
-| 15 | Answers & Results | 2 | 2 | 1 |
-| 16 | Real-World Use Cases | 4 | 2 | 1 |
-| 17 | Use Case Solutions | 2 | 2 | 1 |
-| | **Total** | **61** | **47** | **39** |
+| 13 | Practical Exercises | 3 | 2 | 2 |
+| 14 | Answers & Results | 2 | 2 | 1 |
+| 15 | Real-World Use Cases | 4 | 2 | 1 |
+| 16 | Use Case Solutions | 2 | 2 | 1 |
+| | **Total** | **58** | **44** | **36** |
 
 Each phase has:
 
@@ -95,7 +93,7 @@ Each phase has:
 - A **full markdown guide** (auto-rendered in-app with a table of contents — reading it marks the whole phase complete).
 - A **quiz** with instant feedback and explanations (worth 1 progress unit), scored per attempt, best score saved.
 - **Exercise / project cards** (`ex` / `proj`) with step-by-step requirements, a self-graded star rating, and a collapsible **Show answer** keyed to `answers.js`.
-- **Artifact links** straight into the repo — one-click hops to the exact Apex class or object the phase is about. 39 entries / 20 unique files.
+- **Artifact links** straight into the repo — one-click hops to the exact Apex class or object the phase is about. 36 entries / 18 unique files.
 
 ## Repository structure
 
@@ -103,17 +101,16 @@ Each phase has:
 .
 ├─ docs/                          # the learning app (served on GitHub Pages)
 │  ├─ index.html                  # single-page entry point (hash-routed SPA)
-│  ├─ guide/                      # 17 full markdown guides, one per phase
+│  ├─ guide/                      # 16 full markdown guides, one per phase
 │  └─ assets/
 │     ├─ app.js                   # router, renderer, quiz engine, guide renderer
 │     ├─ curriculum.js            # all module data (ACADEMY)
 │     ├─ answers.js               # exercise answer keys (EXERCISE_ANSWERS)
 │     └─ style.css                # theme + component styles
 ├─ force-app/main/default/        # Salesforce DX source
-│  ├─ classes/                    # 16 Apex services + tests
+│  ├─ classes/                    # 15 Apex services + tests
 │  ├─ objects/                    # custom objects, events, external object
-│  ├─ triggers/                   # platform event + CDC automation
-│  └─ customMetadata/             # exam-fact data the cert prep reads
+│  └─ triggers/                   # platform event + CDC automation
 ├─ manifest/package.xml           # deploy everything at once
 ├─ config/project-scratch-def.json# scratch org definition
 ├─ sfdx-project.json              # API 68.0, force-app is the default package
@@ -162,7 +159,7 @@ Lesson **blocks** are typed objects rendered by `renderBlock()` in `app.js`:
 | `selfcheck` | collapsible "Check yourself" | `q` + `a` |
 | `ex` / `proj` | exercise or project card | steps, stars, success criteria, answer |
 
-Exercise cards look up their answer markdown in `docs/assets/answers.js` by id (`C1EX1` … `C17EX1`) and render it with the same markdown engine.
+Exercise cards look up their answer markdown in `docs/assets/answers.js` by id (`C1EX1` … `C16EX1`) and render it with the same markdown engine.
 
 ### Adding or editing phases
 
@@ -206,16 +203,11 @@ Domain services:
 - `HeadlessFundamentalsService` — orientation: architecture, mediated vs. unmediated, headless-ready orgs
 - `McpFundamentalsService` — the MCP protocol: tools, resources, prompts, transport
 - `McpServerService` — a server-side sketch of an MCP server exposing Salesforce tools to clients
-- `CertificationService` — surfaces Headless Architect exam facts from custom metadata
 
 ### Triggers
 
 - `AccountScorePublisher` — on Account insert/update, computes the health score and publishes `health_changed__e` (REST/event exercise pipeline).
 - `HealthChangedLogger` — subscribes in Apex to health events and appends rows to `REST_Integration_Log__c`.
-
-### Custom metadata
-
-- `HeadlessArchitectExamFacts` (+ `Default` record) — the fact base the `CertificationService` and Phase 13 (Cert Prep) read from, so the exam-prep content is org-driven data, not hard-coded strings.
 
 ## Deploy to an org
 
@@ -255,4 +247,4 @@ Guide rendering and artifact links are validated with lightweight Node helper sc
 
 ---
 
-Built to study Salesforce Headless + MCP end-to-end. Start at the dashboard, follow the phases in order, and the last modules double back as an exam-prep and use-case capstone.
+Built to study Salesforce Headless + MCP end-to-end. Start at the dashboard, follow the phases in order, and finish with practical exercises, real-world use cases, and their canonical solutions.

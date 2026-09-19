@@ -1,6 +1,6 @@
 /* ============================================================================
  * Headless & MCP Academy - Curriculum data
- * 17 phases following the `developer Headless and MCP Roadmap/` guides. Content
+ * 16 phases following the `developer Headless and MCP Roadmap/` guides. Content
  * is condensed from the phase guides and points back to the real repo artifacts.
  * ============================================================================
  */
@@ -807,7 +807,7 @@ if (res.getStatusCode() == 200) { ... }` },
           ['Promotions', 'promotions list', 'Apply at cart'],
           ['Shopper', 'shopper resources', 'AuthNZ for the shopper'],
         ]},
-        { t: 'p', x: 'For the certification, know the difference between hosted checkout vs headless checkout: hosted keeps the payment page on Commerce Cloud; headless calls payment service provider APIs yourself (more control, more PCI scope).' },
+        { t: 'p', x: 'Know the difference between hosted checkout vs headless checkout: hosted keeps the payment page on Commerce Cloud; headless calls payment service provider APIs yourself (more control, more PCI scope).' },
       ]
     },
     {
@@ -922,7 +922,7 @@ app.listen(process.env.PORT || 3000);` },
   art: [
     { label: 'McpFundamentalsService.cls', href: 'force-app/main/default/classes/McpFundamentalsService.cls' },
     { label: 'MCP architecture diagram', href: 'docs/assets/answers.js' },
-    { label: 'MCP exam facts (mdt)', href: 'docs/assets/answers.js' },
+    { label: 'MCP facts (mdt)', href: 'docs/assets/answers.js' },
   ],
   objectives: [
     'Explain what the Model Context Protocol is and why it exists',
@@ -1076,95 +1076,16 @@ await server.connect(transport);` },
 },
 
 /* -------------------------------------------------------------------------- */
-/* PHASE 13 - CERT PREP: HEADLESS ARCHITECT                                  */
-/* -------------------------------------------------------------------------- */
-{
-  id: 'cert-prep',
-  n: 13,
-  title: 'Cert Prep - Headless Architect',
-  icon: '13',
-  color: '#B91C1C',
-  tagline: '60 questions · 120 min · domains & weight',
-  guide: '13-Certification-Prep.md',
-  art: [
-    { label: 'CertificationService.cls', href: 'force-app/main/default/classes/CertificationService.cls' },
-    { label: 'Exam facts custom metadata', href: 'force-app/main/default/customMetadata/' },
-    { label: 'Practice exam (docs)', href: 'docs/assets/answers.js' },
-  ],
-  objectives: [
-    'Map the exam domains and their weights',
-    'Apply solution architecture best practices to scenarios',
-    'Design secure OAuth + API integrations',
-    'Choose headless commerce/storefront strategies',
-    'Describe re-certification and req/gating flow',
-  ],
-  lessons: [
-    {
-      title: 'Exam Snapshot', mins: 8,
-      blocks: [
-        { t: 'p', x: 'The Salesforce Certified Headless Architect exam (formerly Headless Commerce Architect) validates solution design across headless Salesforce architectures. Verify current edition on the exam guide PDF; facts below are the standard architect profile.' },
-        { t: 'table', head: ['Item', 'Typical'], rows: [
-          ['Questions', '60'],
-          ['Time', '120 minutes'],
-          ['Passing', '~68% (verify current guide)'],
-          ['Retake', 'Waiting period + fee'],
-          ['Cost', 'US $400 (verify)'],
-        ]},
-        { t: 'callout', kind: 'warn', x: 'Exam costs and passing score change edition-to-edition. Always confirm against the official current "Headless Architect" exam guide before scheduling.' },
-      ]
-    },
-    {
-      title: 'Domain Weighting (sample)', mins: 7,
-      blocks: [
-        { t: 'table', head: ['Domain', 'Weight'], rows: [
-          ['Solution Architecture & Design', '~30%'],
-          ['Technical Architecture & Integrations', '~25%'],
-          ['Storefront / Headless Client Design', '~20%'],
-          ['Performance & Scalability', '~15%'],
-          ['Security & Compliance', '~10%'],
-        ]},
-        { t: 'p', x: 'The heaviest domain is always solution architecture: scenario → requirements → trade-offs → design. Spend your study time on trade-off reasoning, not isolated API trivia.' },
-        { t: 'selfcheck', q: 'Which domain usually weighs the most?', a: 'Solution Architecture / Design — scenario reasoning carries it.' },
-      ]
-    },
-    {
-      title: 'Study Loop', mins: 6,
-      blocks: [
-        { t: 'list', items: [
-          'Read each roadmap phase guide (this academy!)',
-          'Do every exercise + verify with the answers file',
-          'Mine exam facts from the custom metadata',
-          'Take the Phase 13 quiz, review wrong answers',
-          'Book the exam only after scoring ~80% on a practice attempt',
-        ]},
-        { t: 'callout', kind: 'tip', x: 'The certification prep phase is data-driven from this repo\'s custom metadata — study the facts, not just guides.' },
-      ]
-    },
-  ],
-  quiz: {
-    title: 'Phase 13 Quiz - Cert Prep', mins: 5,
-    questions: [
-      { q: 'The heaviest weighted domain is typically...',
-        opts: ['Solution Architecture & Design', 'Storefront', 'Security', 'Performance'], a: 0, why: 'Solution architecture dominates the Headless Architect exam.' },
-      { q: 'A secure headless integration uses...',
-        opts: ['OAuth 2.0 + Named Credentials', 'hardcoded tokens', 'open proxies', 'guest VF pages'], a: 0, why: 'OAuth + Named Credentials centralize and refresh auth securely.' },
-      { q: 'Before booking the exam you should...',
-        opts: ['score ~80% on practice and verify current edition', 'skip the quiz', 'deploy to prod', 'delete the repo'], a: 0, why: 'Confirm facts against the current official guide and practice until strong.' },
-    ]
-  }
-},
-
-/* -------------------------------------------------------------------------- */
-/* PHASE 14 - PRACTICAL EXERCISES                                             */
+/* PHASE 13 - PRACTICAL EXERCISES                                             */
 /* -------------------------------------------------------------------------- */
 {
   id: 'exercises',
-  n: 14,
+  n: 13,
   title: 'Practical Exercises',
-  icon: '14',
+  icon: '13',
   color: '#0891B2',
   tagline: 'End-to-end mini projects you build',
-  guide: '14-Practical-Exercises.md',
+  guide: '13-Practical-Exercises.md',
   art: [
     { label: 'Isolation/Prefix patterns (scripts)', href: 'docs/assets/answers.js' },
     { label: 'MiniProjectService / flows', href: 'docs/assets/answers.js' },
@@ -1200,7 +1121,7 @@ await server.connect(transport);` },
     {
       title: 'Exercise — Pick Your First', mins: 8,
       blocks: [
-        { t: 'ex', id: 'C14EX1', title: 'Mini project kickoff', obj: 'Choose and scaffold your first mini project (MP1 recommended).', steps: [
+        { t: 'ex', id: 'C13EX1', title: 'Mini project kickoff', obj: 'Choose and scaffold your first mini project (MP1 recommended).', steps: [
           'Fork/clone this roadmap and open the MP folder',
           'Scaffold a scratch org from config/project-scratch-def.json',
           'Run the reference service + test as your baseline',
@@ -1210,7 +1131,7 @@ await server.connect(transport);` },
     },
   ],
   quiz: {
-    title: 'Phase 14 Quiz - Exercises', mins: 5,
+    title: 'Phase 13 Quiz - Exercises', mins: 5,
     questions: [
       { q: 'Mini projects are ordered so that...',
         opts: ['each builds on the prior tools', 'they are independent', 'only MP5 matters', 'they need no tests'], a: 0, why: 'Progressive reuse keeps each project reviewable.' },
@@ -1221,16 +1142,16 @@ await server.connect(transport);` },
 },
 
 /* -------------------------------------------------------------------------- */
-/* PHASE 15 - ANSWERS & RESULTS                                              */
+/* PHASE 14 - ANSWERS & RESULTS                                              */
 /* -------------------------------------------------------------------------- */
 {
   id: 'answers',
-  n: 15,
+  n: 14,
   title: 'Answers & Results',
-  icon: '15',
+  icon: '14',
   color: '#4D7C0F',
   tagline: 'Everything a guide says, verified',
-  guide: '15-Answers-and-Results.md',
+  guide: '14-Answers-and-Results.md',
   art: [
     { label: 'answers.js (all solutions)', href: 'docs/assets/answers.js' },
   ],
@@ -1244,7 +1165,7 @@ await server.connect(transport);` },
     {
       title: 'How to Use This Phase', mins: 7,
       blocks: [
-        { t: 'p', x: 'Before you peek: attempt the exercise, then compare. The answers file is indexed per exercise id (C1EX1 … C14EX1, MP…) with code, expected resultston and common-mistake notes.' },
+        { t: 'p', x: 'Before you peek: attempt the exercise, then compare. The answers file is indexed per exercise id (C1EX1 … C13EX1, MP…) with code, expected resultston and common-mistake notes.' },
         { t: 'callout', kind: 'tip', x: 'The answers are teaching artifacts — they show the WHY via expected-result and mistake sections, so model your own reasoning, not just your code.' },
       ]
     },
@@ -1261,7 +1182,7 @@ await server.connect(transport);` },
     },
   ],
   quiz: {
-    title: 'Phase 15 Quiz - Answers', mins: 5,
+    title: 'Phase 14 Quiz - Answers', mins: 5,
     questions: [
       { q: 'The best way to study the answers is to...',
         opts: ['attempt first then compare', 'read them fast', 'PDF print everything', 'skip guides'], a: 0, why: 'Attempt-then-compare makes the delta meaningful.' },
@@ -1272,16 +1193,16 @@ await server.connect(transport);` },
 },
 
 /* -------------------------------------------------------------------------- */
-/* PHASE 16 - REAL-WORLD USE CASES                                            */
+/* PHASE 15 - REAL-WORLD USE CASES                                            */
 /* -------------------------------------------------------------------------- */
 {
   id: 'usecases',
-  n: 16,
+  n: 15,
   title: 'Real-World Use Cases',
-  icon: '16',
+  icon: '15',
   color: '#334155',
   tagline: 'Field-facing scenarios, decision logic',
-  guide: '16-Real-World-Use-Cases.md',
+  guide: '15-Real-World-Use-Cases.md',
   art: [
     { label: 'Scenario → decision tables', href: 'docs/assets/answers.js' },
   ],
@@ -1331,16 +1252,16 @@ await server.connect(transport);` },
     {
       title: 'Exercise — Decide & Justify', mins: 9,
       blocks: [
-        { t: 'ex', id: 'C16EX1', title: 'Use-case architecture brief', obj: 'Choose an API + security approach for one real scenario and write the justification.', steps: [
+        { t: 'ex', id: 'C15EX1', title: 'Use-case architecture brief', obj: 'Choose an API + security approach for one real scenario and write the justification.', steps: [
           'Pick: realtime inflight-view, 10M sync, or agent Q&A',
           'Justify API, transport, security, scale decisions',
           'Note the top trade-off and the smell you avoided',
-        ], verify: 'Your brief names trade-offs and defends the API choice with requirements — the way a cert scenario expects.', stars: 2 },
+        ], verify: 'Your brief names trade-offs and defends the API choice with requirements — the way a solution-architecture review expects.', stars: 2 },
       ]
     },
   ],
   quiz: {
-    title: 'Phase 16 Quiz - Use Cases', mins: 5,
+    title: 'Phase 15 Quiz - Use Cases', mins: 5,
     questions: [
       { q: 'For instant approval updates in a field app you prefer...',
         opts: ['streaming/pub-sub', 'polling every 5s', 'monthly reports', 'mass mail'], a: 0, why: 'Streaming delivers changes without chatty polling.' },
@@ -1351,16 +1272,16 @@ await server.connect(transport);` },
 },
 
 /* -------------------------------------------------------------------------- */
-/* PHASE 17 - USE CASE SOLUTIONS                                              */
+/* PHASE 16 - USE CASE SOLUTIONS                                              */
 /* -------------------------------------------------------------------------- */
 {
   id: 'solutions',
-  n: 17,
+  n: 16,
   title: 'Use Case Solutions',
-  icon: '17',
+  icon: '16',
   color: '#166534',
   tagline: 'Canonical answers for every use case',
-  guide: '17-Use-Case-Solutions.md',
+  guide: '16-Use-Case-Solutions.md',
   art: [
     { label: 'CaseC1 / CaseC2 / CaseC3 solutions', href: 'docs/assets/answers.js' },
   ],
@@ -1381,7 +1302,7 @@ await server.connect(transport);` },
     {
       title: 'Exercise — Self-audit', mins: 8,
       blocks: [
-        { t: 'ex', id: 'C17EX1', title: 'Grade your own brief', obj: 'Compare your Phase 16 brief to the canonical solution and list one improvement.', steps: [
+        { t: 'ex', id: 'C16EX1', title: 'Grade your own brief', obj: 'Compare your Phase 15 brief to the canonical solution and list one improvement.', steps: [
           'Open the matching solution in answers.js',
           'List where your brief disagrees (if any)',
           'Rewrite the justification incorporating the feedback',
@@ -1390,7 +1311,7 @@ await server.connect(transport);` },
     },
   ],
   quiz: {
-    title: 'Phase 17 Quiz - Solutions', mins: 5,
+    title: 'Phase 16 Quiz - Solutions', mins: 5,
     questions: [
       { q: 'The value of reading a canonical solution is...',
         opts: ['finding meaningful deltas in your reasoning', 'memorizing code', 'auto-passing', 'skipping tests'], a: 0, why: 'Compare-and-correct sharpens architect reasoning.' },

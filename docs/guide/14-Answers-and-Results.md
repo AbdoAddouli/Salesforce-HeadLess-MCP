@@ -1,4 +1,4 @@
-# Phase 15 — Answers & Results
+# Phase 14 — Answers & Results
 
 Everything a guide says, verified. The canonical solutions, the "why", and the
 mistakes to avoid.
@@ -6,7 +6,7 @@ mistakes to avoid.
 ## How to Use This Phase
 
 **Before you peek:** attempt the exercise, then compare. The answers file is
-indexed per exercise id (`C1EX1` … `C17EX1`) with code, expected results, and
+indexed per exercise id (`C1EX1` … `C16EX1`) with code, expected results, and
 common-mistake notes.
 
 > The answers are teaching artifacts — they show the **WHY** via expected-result
@@ -28,9 +28,9 @@ common-mistake notes.
 | C10EX1 | Serverless | Express worker |
 | C11EX1 | MCP Fundamentals | Surface map |
 | C12EX1 | Build MCP Servers | SDK tool |
-| C14EX1 | Practical Exercises | Mini project kickoff |
-| C16EX1 | Real-World Use Cases | Architecture brief |
-| C17EX1 | Use Case Solutions | Self-audit |
+| C13EX1 | Practical Exercises | Mini project kickoff |
+| C15EX1 | Real-World Use Cases | Architecture brief |
+| C16EX1 | Use Case Solutions | Self-audit |
 
 ## Self-Verification Habits
 
