@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Headless &amp; MCP Academy - Learn Salesforce Headless + MCP</title>
+  <meta name="description" content="Interactive, self-paced course: 17 modules covering the full Salesforce Headless & MCP landscape - Headless 360, REST/GraphQL/Bulk/Streaming APIs, Platform Events, Salesforce Connect, OAuth, serverless, Express, MCP fundamentals, building MCP servers, Headless Architect certification prep, practical exercises, answers and capstone use cases." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9745;</text></svg>" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script>
+    (function() {
+      var t = localStorage.getItem('devacademy-theme');
+      if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="shell">
+
+    <aside class="sidebar">
+      <!-- filled by app.js -->
+    </aside>
+
+    <div class="content">
+
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+        <a class="brand" href="#/">
+          <span class="logo">&#9883;</span>
+          <span class="brand-text">
+            <b>Headless &amp; MCP</b><small>Academy</small>
+          </span>
+        </a>
+        <div class="tb-search">
+          <input id="topSearch" type="search" placeholder="Search lessons, concepts.  (press /)" autocomplete="off" />
+          <span class="kbd">/</span>
+        </div>
+        <div class="tb-meter" title="Roadmap progress">
+          <div class="tb-bar"><i id="topBar"></i></div>
+          <span id="topPct" class="tb-pct">0%</span>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle theme">🌙</button>
+      </header>
+
+      <main id="view"></main>
+
+      <footer class="footer">
+        <a href="https://github.com/AbdoAddouli/Salesforce-HeadLess-MCP" target="_blank" rel="noopener">AbdoAddouli/Salesforce-HeadLess-MCP</a>
+        <span>&middot;</span>
+        <span>Salesforce Headless &amp; MCP Academy - API 68.0</span>
+        <span>&middot;</span>
+        <span>Progress is saved in your browser</span>
+      </footer>
+
+    </div>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/curriculum.js"></script>
+  <script src="assets/answers.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

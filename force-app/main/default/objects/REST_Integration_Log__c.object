@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <label>REST Integration Log</label>
+    <pluralLabel>REST Integration Logs</pluralLabel>
+    <nameField>
+        <label>REST Integration Log Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <fields>
+        <fullName>AccountId__c</fullName>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Accounts</relationshipName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Event_Type__c</fullName>
+        <label>Event Type</label>
+        <length>255</length>
+        <type>Text</type>
+    </fields>
+    <fields>
+        <fullName>Observed_Score__c</fullName>
+        <label>Observed Score</label>
+        <precision>5</precision>
+        <scale>0</scale>
+        <type>Number</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <label>Status</label>
+        <length>40</length>
+        <type>Text</type>
+    </fields>
+</CustomObject>
