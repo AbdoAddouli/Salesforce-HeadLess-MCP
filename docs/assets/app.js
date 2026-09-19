@@ -1,5 +1,5 @@
 /* =============================================================================
- * Headless & MCP Academy � app
+ * Headless & MCP Academy — app
  * Client-side learning app: hash routing, lesson renderer, quiz engine,
  * progress persistence (localStorage), search, keyboard shortcuts.
  * ============================================================================= */
@@ -13,7 +13,7 @@ function setTheme(t) {
   document.documentElement.setAttribute('data-theme', t);
   localStorage.setItem('devacademy-theme', t);
   const btn = document.getElementById('themeToggle');
-  if (btn) btn.textContent = t === 'dark' ? '??' : '??';
+  if (btn) btn.textContent = t === 'dark' ? '🌙' : '☀️';
 }
 
 /* ------------------------- small helpers ------------------------- */
@@ -110,7 +110,7 @@ const view = $('#view');
 function render() {
   const mod = route.mid ? byId(route.mid) : null;
   const r = parseHash(); // keep in sync with friendly URLs
-  document.title = 'Headless & MCP Academy' + (mod ? ' � ' + mod.title : '');
+  document.title = 'Headless & MCP Academy' + (mod ? ' · ' + mod.title : '');
 
   // sidebar
   renderSidebar();
@@ -135,7 +135,7 @@ function renderSidebar() {
   const aside = $('aside.sidebar');
   aside.innerHTML = `
     <div class="side-brand">
-      <div class="logo">??</div>
+      <div class="logo">☁️</div>
       <div><b>Headless & MCP Academy</b><span>17-phase roadmap</span></div>
     </div>`;
 
@@ -145,7 +145,7 @@ function renderSidebar() {
   const home = document.createElement('a');
   home.href = '#/';
   home.className = 'side-link' + (route.view === 'home' ? ' active' : '');
-  home.innerHTML = `<span class="sli">??</span> Dashboard`;
+  home.innerHTML = `<span class="sli">🏠</span> Dashboard`;
   nav.appendChild(home);
 
   MODULES.forEach(m => {
@@ -160,7 +160,7 @@ function renderSidebar() {
         <span class="sp-bar"><i style="width:${p.pct}%;background:${m.color}"></i></span>
       </span>
       <span class="sp-pct">${p.pct}%</span>
-      ${p.complete ? '<span class="sp-ok">?</span>' : ''}`;
+      ${p.complete ? '<span class="sp-ok">✓</span>' : ''}`;
     nav.appendChild(a);
   });
 
@@ -203,13 +203,13 @@ function renderHome() {
   view.innerHTML = `
     <div class="home-hero reveal">
       <div>
-        <div class="hero-kicker">Salesforce Headless & MCP � study from zero</div>
+        <div class="hero-kicker">Salesforce Headless & MCP · study from zero</div>
         <h1 class="hero-title">Become <span class="grad">headless & MCP ready</span>, phase by phase.</h1>
-        <p class="hero-sub">${MODULES.length} guided modules, ${totalLessons} lessons, ${MODULES.length} quizzes � with real metadata in the repo to deploy and practice on.</p>
+        <p class="hero-sub">${MODULES.length} guided modules, ${totalLessons} lessons, ${MODULES.length} quizzes — with real metadata in the repo to deploy and practice on.</p>
         <div class="hero-actions">
-          <button class="btn primary" id="startBtn">${next ? '? Continue learning' : '?? Restart'}</button>
+          <button class="btn primary" id="startBtn">${next ? '▶ Continue learning' : '🎉 Restart'}</button>
           <button class="btn ghost" id="phasesBtn">Browse all phases</button>
-          <span class="hero-meta">?? 17 phases � self-paced</span>
+          <span class="hero-meta">📅 17 phases · self-paced</span>
         </div>
       </div>
       <div class="ring-wrap">
@@ -231,13 +231,13 @@ function renderHome() {
         <h3>${resume.li != null && resume.li < rm.lessons.length ? rm.lessons[resume.li].title : rm.lessons[0].title}</h3>
         <div class="cc-sub">${rm.title}</div>
         <div class="sp-bar"><i style="width:${moduleProgress(rm.id).pct}%;background:${rm.color}"></i></div>
-        <button class="btn primary sm" id="resumeBtn">Resume ?</button>
+        <button class="btn primary sm" id="resumeBtn">Resume →</button>
       </div>
       <div class="card next-card" style="--c:${next.m.color}">
         <div class="cc-top"><span class="cc-label">Next up</span><span class="pill">Phase ${next.m.n}</span></div>
         <h3>${next.i != null && next.i < next.m.lessons.length ? next.m.lessons[next.i].title : next.m.lessons[0].title}</h3>
-        <div class="cc-sub">${next.m.lessons[next.i].mins} min � ${next.m.lessons.length} lessons � ${next.m.quiz.questions.length}-question quiz</div>
-        <button class="btn sm" id="nextBtn">Open ?</button>
+        <div class="cc-sub">${next.m.lessons[next.i].mins} min · ${next.m.lessons.length} lessons · ${next.m.quiz.questions.length}-question quiz</div>
+        <button class="btn sm" id="nextBtn">Open →</button>
       </div>
       <div class="card streak-card" style="--c:#e8b93d">
         <div class="cc-top"><span class="cc-label">Learning tips</span></div>
@@ -250,7 +250,7 @@ function renderHome() {
       </div>
     </div>
 
-    <div class="grid-head reveal"><h2>Your roadmap</h2><span>${MODULES.length} phases � study in order or jump anywhere</span></div>
+    <div class="grid-head reveal"><h2>Your roadmap</h2><span>${MODULES.length} phases · study in order or jump anywhere</span></div>
     <div class="module-grid reveal" id="modGrid"></div>`;
 
   $('#startBtn').addEventListener('click', () => navigate('lesson', resume.m.id, resume.li != null && resume.li < rm.lessons.length ? resume.li : 0));
@@ -269,17 +269,17 @@ function renderHome() {
       <div class="mc-top">
         <span class="mc-num">${String(m.n).padStart(2, '0')}</span>
         <span class="mc-ico">${m.icon}</span>
-        ${p.complete ? '<span class="mc-done">? completed</span>' : ''}
+        ${p.complete ? '<span class="mc-done">✓ completed</span>' : ''}
       </div>
       <h3>${esc(m.title)}</h3>
       <div class="mc-tag">${esc(m.tagline)}</div>
       <div class="mc-prog">
         <div class="sp-bar"><i style="width:${p.pct}%;background:${m.color}"></i></div>
-        <div class="mc-sub">${p.done}/${p.total} lessons � ${p.quizPct}% quiz</div>
+        <div class="mc-sub">${p.done}/${p.total} lessons · ${p.quizPct}% quiz</div>
       </div>
       <div class="mc-foot">
-        <span>${m.lessons.length} lessons � ${m.quiz.questions.length} quiz</span>
-        <span class="mc-arrow">?</span>
+        <span>${m.lessons.length} lessons · ${m.quiz.questions.length} quiz</span>
+        <span class="mc-arrow">→</span>
       </div>`;
     grid.appendChild(card);
   });
@@ -291,12 +291,12 @@ function renderModule(mod) {
   const p = moduleProgress(mod.id);
   const quizScore = store.best[mod.id];
   view.innerHTML = `
-    <div class="crumb reveal"><a href="#/">Dashboard</a> <span>�</span> <b>${mod.title}</b></div>
+    <div class="crumb reveal"><a href="#/">Dashboard</a> <span>›</span> <b>${mod.title}</b></div>
 
     <div class="phase-hero reveal" style="--c:${mod.color}">
       <div class="ph-ico">${mod.icon}</div>
       <div class="ph-body">
-        <div class="ph-kicker">Phase ${String(mod.n).padStart(2, '0')} � ${mod.tagline}</div>
+        <div class="ph-kicker">Phase ${String(mod.n).padStart(2, '0')} · ${mod.tagline}</div>
         <h1>${mod.title}</h1>
         <div class="ph-obj"><span>By the end you can:</span>
           <ul>${mod.objectives.map(o => `<li>${esc(o)}</li>`).join('')}</ul>
@@ -306,66 +306,66 @@ function renderModule(mod) {
         <div class="ring sm" style="--p:${p.pct};--c:${mod.color}"><span>${p.pct}<small>%</small></span></div>
         <div class="ph-stats">
           <span>${p.done}/${p.total} lessons</span>
-          <span>${store.quiz[mod.id] ? '? quiz taken' : 'quiz pending'}</span>
+          <span>${store.quiz[mod.id] ? '✓ quiz taken' : 'quiz pending'}</span>
         </div>
-        <a class="btn primary sm" href="#/guide/${mod.id}">?? Read the full guide</a>
+        <a class="btn primary sm" href="#/guide/${mod.id}">📖 Read the full guide</a>
         <a class="btn ghost sm" target="_blank" rel="noopener"
-           href="${GUIDE}${mod.guide}">?? raw</a>
+           href="${GUIDE}${mod.guide}">📄 raw</a>
       </div>
     </div>
 
     <div class="lessons reveal">
       <a class="lesson-row guide-row" href="#/guide/${mod.id}" style="--c:${mod.color}">
-        <span class="lr-state guide">??</span>
+        <span class="lr-state guide">📖</span>
         <span class="lr-info">
           <b>Full module guide</b>
-          <span class="lr-meta">complete walkthrough � sections, tables, code & checklists${guideRead(mod.id) ? ' � read ?' : ''}</span>
+          <span class="lr-meta">complete walkthrough · sections, tables, code & checklists${guideRead(mod.id) ? ' · read ✓' : ''}</span>
         </span>
-        <span class="lr-arrow">?</span>
+        <span class="lr-arrow">→</span>
       </a>
       ${mod.lessons.map((l, i) => `
         <a class="lesson-row" href="#/lesson/${mod.id}/${i}" style="--c:${mod.color}">
-          <span class="lr-state">${lessonDone(mod.id, i) ? '<span class="lr-done">?</span>' : String(i + 1).padStart(2, '0')}</span>
+          <span class="lr-state">${lessonDone(mod.id, i) ? '<span class="lr-done">✓</span>' : String(i + 1).padStart(2, '0')}</span>
           <span class="lr-info">
             <b>${l.title}</b>
             <span class="lr-meta">${l.mins} min</span>
           </span>
-          <span class="lr-arrow">?</span>
+          <span class="lr-arrow">→</span>
         </a>`).join('')}
     </div>
 
     <div class="quiz-card reveal" style="--c:${mod.color}">
       <div class="qc-left">
-        <div class="qc-ico">??</div>
+        <div class="qc-ico">🧠</div>
         <div>
-          <h3>Module quiz � check your understanding</h3>
-          <p>${mod.quiz.questions.length} questions � ${mod.quiz.mins} min.
+          <h3>Module quiz · check your understanding</h3>
+          <p>${mod.quiz.questions.length} questions · ${mod.quiz.mins} min.
              ${quizScore != null ? `Your best: <b>${quizScore}/${mod.quiz.questions.length}</b> (${Math.round(quizScore / mod.quiz.questions.length * 100)}%).` : 'Not attempted yet.'}
           </p>
         </div>
       </div>
       <div class="qc-right">
-        ${quizScore != null && quizScore === mod.quiz.questions.length ? '<span class="qc-perfect">? perfect</span>' : ''}
-        <a class="btn primary" href="#/quiz/${mod.id}">${quizScore != null ? 'Retake quiz' : 'Take quiz ?'}</a>
+        ${quizScore != null && quizScore === mod.quiz.questions.length ? '<span class="qc-perfect">★ perfect</span>' : ''}
+        <a class="btn primary" href="#/quiz/${mod.id}">${quizScore != null ? 'Retake quiz' : 'Take quiz →'}</a>
       </div>
     </div>
 
     <div class="artifacts reveal">
-      <h3>?? Real artifacts in this repo</h3>
+      <h3>📦 Real artifacts in this repo</h3>
       <div class="artifacts-grid">
         ${mod.art.map(a => `
           <a class="artifact" target="_blank" rel="noopener"
 href="https://github.com/AbdoAddouli/Salesforce-HeadLess-MCP/blob/main/${a.href}" style="--c:${mod.color}">
-            <span class="a-ico">???</span> <span>${a.label}</span>
+            <span class="a-ico">🗂️</span> <span>${a.label}</span>
           </a>`).join('')}
       </div>
     </div>
 
     <div class="phase-nav reveal">
-      ${mod.n > 1 ? `<a class="btn ghost" href="#/phase/${MODULES[mod.n - 2].id}">? ${MODULES[mod.n - 2].title}</a>` : '<span></span>'}
+      ${mod.n > 1 ? `<a class="btn ghost" href="#/phase/${MODULES[mod.n - 2].id}">← ${MODULES[mod.n - 2].title}</a>` : '<span></span>'}
       ${mod.n < MODULES.length
-        ? `<a class="btn primary" href="#/phase/${MODULES[mod.n].id}">${MODULES[mod.n].title} ?</a>`
-        : `<a class="btn primary" href="#/quiz/${mod.id}">?? Take the final quiz</a>`}
+        ? `<a class="btn primary" href="#/phase/${MODULES[mod.n].id}">${MODULES[mod.n].title} →</a>`
+        : `<a class="btn primary" href="#/quiz/${mod.id}">🎯 Take the final quiz</a>`}
     </div>`;
 }
 
@@ -378,27 +378,27 @@ function renderLesson(mod, li) {
   const done = lessonDone(mod.id, li);
 
   view.innerHTML = `
-    <div class="crumb reveal"><a href="#/">Dashboard</a> <span>�</span> <a href="#/phase/${mod.id}">${mod.title}</a> <span>�</span> <b>${lesson.title}</b></div>
+    <div class="crumb reveal"><a href="#/">Dashboard</a> <span>›</span> <a href="#/phase/${mod.id}">${mod.title}</a> <span>›</span> <b>${lesson.title}</b></div>
 
     <div class="lesson-wrap reveal">
       <aside class="lesson-toc">
         <div class="toc-title">${mod.title}</div>
         ${mod.lessons.map((l, i) => `
           <a href="#/lesson/${mod.id}/${i}" class="toc-item ${i === li ? 'active' : ''}">
-            <span class="toc-state">${lessonDone(mod.id, i) ? '?' : i + 1}</span>
+            <span class="toc-state">${lessonDone(mod.id, i) ? '✓' : i + 1}</span>
             <span>${l.title}<span class="toc-min">${l.mins}'</span></span>
           </a>`).join('')}
         <a href="#/guide/${mod.id}" class="toc-item toc-guide" style="--c:${mod.color}">
-          <span class="toc-state">??</span><span>Full module guide</span>
+          <span class="toc-state">📖</span><span>Full module guide</span>
         </a>
         <a href="#/quiz/${mod.id}" class="toc-item toc-quiz" style="--c:${mod.color}">
-          <span class="toc-state">??</span><span>Module quiz</span>
+          <span class="toc-state">🧠</span><span>Module quiz</span>
         </a>
       </aside>
 
       <article class="lesson article" style="--c:${mod.color}">
         <div class="lesson-head" style="--c:${mod.color}">
-          <div class="lh-meta">Phase ${String(mod.n).padStart(2, '0')} � Lesson ${li + 1} of ${mod.lessons.length} � ${lesson.mins} min</div>
+          <div class="lh-meta">Phase ${String(mod.n).padStart(2, '0')} · Lesson ${li + 1} of ${mod.lessons.length} · ${lesson.mins} min</div>
           <h1>${lesson.title}</h1>
         </div>
         <div class="chips">
@@ -410,21 +410,21 @@ function renderLesson(mod, li) {
         <div class="lesson-foot">
           <div class="lf-left">
             ${done
-              ? '<button class="btn ghost sm" id="unbtn">? Mark as unlearned</button>'
-              : `<button class="btn primary" id="doneBtn">? Mark lesson complete</button>`}
+              ? '<button class="btn ghost sm" id="unbtn">↩ Mark as unlearned</button>'
+              : `<button class="btn primary" id="doneBtn">✓ Mark lesson complete</button>`}
           </div>
           <div class="lf-right">
-            ${prevI != null ? `<a class="btn ghost sm" href="#/lesson/${mod.id}/${prevI}">? Prev</a>` : ''}
+            ${prevI != null ? `<a class="btn ghost sm" href="#/lesson/${mod.id}/${prevI}">← Prev</a>` : ''}
             ${nextI != null
-              ? `<a class="btn primary sm" href="#/lesson/${mod.id}/${nextI}">Next ?</a>`
-              : `<a class="btn primary sm" href="#/quiz/${mod.id}">Take the quiz ?</a>`}
+              ? `<a class="btn primary sm" href="#/lesson/${mod.id}/${nextI}">Next →</a>`
+              : `<a class="btn primary sm" href="#/quiz/${mod.id}">Take the quiz →</a>`}
           </div>
         </div>
       </article>
     </div>`;
 
   const b = $('#doneBtn'); const u = $('#unbtn');
-  if (b) b.addEventListener('click', () => { markDone(mod.id, li, true); store.lastOpen = { mid: mod.id, li }; save(); toast('Lesson complete! ??'); render(); });
+  if (b) b.addEventListener('click', () => { markDone(mod.id, li, true); store.lastOpen = { mid: mod.id, li }; save(); toast('Lesson complete! 🎉'); render(); });
   if (u) u.addEventListener('click', () => { markDone(mod.id, li, false); render(); });
   store.lastOpen = { mid: mod.id, li }; save();
   requestAnimationFrame(() => window.scrollTo(0, 0));
@@ -502,7 +502,7 @@ function md(src, opts) {
           const m = x.match(/^\s*[-*]\s+\[([ xX])\]\s+(.*)/);
           if (!m) return `<li>${mdInline(esc(x.replace(/^\s*[-*]\s+/, '')))}</li>`;
           const done = m[1] === 'x' || m[1] === 'X';
-          return `<li class="task ${done ? 'done' : ''}"><span class="t-box">${done ? '?' : ''}</span><span class="t-text">${mdInline(esc(m[2]))}</span></li>`;
+          return `<li class="task ${done ? 'done' : ''}"><span class="t-box">${done ? '✓' : ''}</span><span class="t-text">${mdInline(esc(m[2]))}</span></li>`;
         }).join('') + '</ul>');
       } else {
         html.push(`<ul class="tick-list">${items.map(x => `<li>${mdInline(esc(x.replace(/^\s*[-*]\s+/, '')))}</li>`).join('')}</ul>`);
@@ -564,13 +564,13 @@ function renderBlock(b) {
       const cid = 'c' + cyrb53(b.x);
       const bT = b.lang || 'text';
       return `<div class="codeblock">
-        <div class="cb-head"><span class="cb-lang">${esc(bT)}</span><button class="cb-copy" data-copy="${cid}" title="Copy">? Copy</button></div>
+        <div class="cb-head"><span class="cb-lang">${esc(bT)}</span><button class="cb-copy" data-copy="${cid}" title="Copy">⧉ Copy</button></div>
         <pre id="${cid}" class="lang-${esc(bT)}"><code>${esc(b.x)}</code></pre>
       </div>`;
     }
     case 'callout': {
-      const icons = { tip: '??', warn: '??' };
-      return `<div class="callout ${esc(b.kind)}"><div class="co-ico">${icons[b.kind] || '??'}</div><div>${esc(b.x)}</div></div>`;
+      const icons = { tip: '💡', warn: '⚠️' };
+      return `<div class="callout ${esc(b.kind)}"><div class="co-ico">${icons[b.kind] || '💡'}</div><div>${esc(b.x)}</div></div>`;
     }
     case 'selfcheck': return `
       <div class="selfcheck">
@@ -588,14 +588,14 @@ function renderBlock(b) {
           ? `<li>${esc(i)}</li>`
           : `<li class="ex-group"><b>${esc(i.h)}</b><ul>${i.items.map(x => `<li>${esc(x)}</li>`).join('')}</ul></li>`
       ).join('');
-      const stars = '?'.repeat(b.stars) + '?'.repeat(Math.max(0, 4 - b.stars));
+      const stars = '★'.repeat(b.stars) + '☆'.repeat(Math.max(0, 4 - b.stars));
       const code = b.code ? renderBlock({ t: 'code', ...b.code }) : '';
       const footer = isProject
-        ? `<div class="ex-verify">?? Success � ${esc(b.success)}</div>`
-        : `<div class="ex-verify">? Verify � ${esc(b.verify)}</div>`;
+        ? `<div class="ex-verify">🎯 Success — ${esc(b.success)}</div>`
+        : `<div class="ex-verify">✅ Verify — ${esc(b.verify)}</div>`;
       const hasAnswer = typeof EXERCISE_ANSWERS !== 'undefined' && EXERCISE_ANSWERS[b.id];
       const answer = hasAnswer
-        ? `<details class="ex-answer"><summary><span class="ea-ico">??</span><span>Show answer</span><span class="ea-caret">?</span></summary><div class="ex-answer-body">${md(EXERCISE_ANSWERS[b.id])}</div></details>`
+        ? `<details class="ex-answer"><summary><span class="ea-ico">💡</span><span>Show answer</span><span class="ea-caret">▾</span></summary><div class="ex-answer-body">${md(EXERCISE_ANSWERS[b.id])}</div></details>`
         : '';
       return `
         <div class="ex-card ${isProject ? 'proj' : ''}" data-stars="${b.stars}">
@@ -606,7 +606,7 @@ function renderBlock(b) {
           <h3 class="ex-title">${esc(b.title)}</h3>
           <p class="ex-obj">${esc(b.obj)}</p>
           ${code}
-          <div class="ex-label">${isProject ? '?? Requirements' : '?? Instructions'}</div>
+          <div class="ex-label">${isProject ? '📋 Requirements' : '🧭 Instructions'}</div>
           <ol class="ex-list">${lis}</ol>
           ${footer}
           ${answer}
@@ -635,44 +635,44 @@ function renderGuide(mod) {
   const read = guideRead(mod.id);
 
   view.innerHTML = `
-    <div class="crumb reveal"><a href="#/">Dashboard</a> <span>�</span> <a href="#/phase/${mod.id}">${mod.title}</a> <span>�</span> <b>Full guide</b></div>
+    <div class="crumb reveal"><a href="#/">Dashboard</a> <span>›</span> <a href="#/phase/${mod.id}">${mod.title}</a> <span>›</span> <b>Full guide</b></div>
 
     <div class="guide-hero reveal" style="--c:${mod.color}">
       <div class="ph-ico">${mod.icon}</div>
       <div class="ph-body">
-        <div class="ph-kicker">Phase ${String(mod.n).padStart(2, '0')} � complete guide</div>
+        <div class="ph-kicker">Phase ${String(mod.n).padStart(2, '0')} · complete guide</div>
         <h1>${mod.title}</h1>
-        <p class="qc-sub">The full roadmap guide is rendered right here � every section, table, code sample and checklist from ${esc(mod.guide)}. ${read ? '<b>You marked this guide as read.</b>' : 'Read it end-to-end, then mark it as read to complete the module.'}</p>
+        <p class="qc-sub">The full roadmap guide is rendered right here — every section, table, code sample and checklist from ${esc(mod.guide)}. ${read ? '<b>You marked this guide as read.</b>' : 'Read it end-to-end, then mark it as read to complete the module.'}</p>
         <div class="guide-meta">
-          ${mod.art.map(a => `<a class="artifact" target="_blank" rel="noopener" href="https://github.com/AbdoAddouli/Salesforce-HeadLess-MCP/blob/main/${a.href}" style="--c:${mod.color}"><span class="a-ico">???</span> <span>${a.label}</span></a>`).join('')}
+          ${mod.art.map(a => `<a class="artifact" target="_blank" rel="noopener" href="https://github.com/AbdoAddouli/Salesforce-HeadLess-MCP/blob/main/${a.href}" style="--c:${mod.color}"><span class="a-ico">🗂️</span> <span>${a.label}</span></a>`).join('')}
         </div>
       </div>
       <div class="ph-side">
         <div class="ring sm" style="--p:${p.pct};--c:${mod.color}"><span>${p.pct}<small>%</small></span></div>
-        <div class="ph-stats"><span>${read ? '? guide read' : 'guide unread'}</span></div>
-        <a class="btn ghost sm" target="_blank" rel="noopener" href="${GUIDE}${mod.guide}">?? raw on GitHub</a>
+        <div class="ph-stats"><span>${read ? '✓ guide read' : 'guide unread'}</span></div>
+        <a class="btn ghost sm" target="_blank" rel="noopener" href="${GUIDE}${mod.guide}">📄 raw on GitHub</a>
       </div>
     </div>
 
     <div class="guide-wrap reveal">
       <aside class="guide-toc" aria-label="Table of contents">
         <div class="toc-title">On this guide</div>
-        <div id="guideToc"><div class="gt-loading">�</div></div>
+        <div id="guideToc"><div class="gt-loading">…</div></div>
       </aside>
       <article class="article guide-article" style="--c:${mod.color}">
-        <div class="guide-loading"><span class="spinner"></span> Loading the full guide�</div>
+        <div class="guide-loading"><span class="spinner"></span> Loading the full guide…</div>
       </article>
     </div>
 
     <div class="lesson-foot reveal">
       <div class="lf-left">
-        <button class="btn primary" id="greadBtn">${read ? '? Guide read � toggle' : '? Mark guide as read'}</button>
+        <button class="btn primary" id="greadBtn">${read ? '✓ Guide read — toggle' : '✔ Mark guide as read'}</button>
       </div>
       <div class="lf-right">
-        ${mod.n > 1 ? `<a class="btn ghost sm" href="#/guide/${MODULES[mod.n - 2].id}">? ${MODULES[mod.n - 2].title}</a>` : ''}
+        ${mod.n > 1 ? `<a class="btn ghost sm" href="#/guide/${MODULES[mod.n - 2].id}">← ${MODULES[mod.n - 2].title}</a>` : ''}
         ${mod.n < MODULES.length
-          ? `<a class="btn primary sm" href="#/guide/${MODULES[mod.n].id}">${MODULES[mod.n].title} ?</a>`
-          : `<a class="btn primary sm" href="#/quiz/${mod.id}">?? Take the final quiz ?</a>`}
+          ? `<a class="btn primary sm" href="#/guide/${MODULES[mod.n].id}">${MODULES[mod.n].title} →</a>`
+          : `<a class="btn primary sm" href="#/quiz/${mod.id}">🎯 Take the final quiz →</a>`}
       </div>
     </div>`;
 
@@ -690,15 +690,15 @@ function renderGuide(mod) {
     const article = $('.guide-article');
     article.innerHTML = `
       <div class="guide-fail">
-        <div class="gf-ico">??</div>
+        <div class="gf-ico">⚠️</div>
         <h3>Could not load the guide file</h3>
         <p>The full guide is served from <code class="inline">docs/guide/${esc(mod.guide)}</code> in this repo. If you are viewing a local file (not through GitHub Pages), the fetch may be blocked.</p>
-        <a class="btn" target="_blank" rel="noopener" href="${GUIDE}${mod.guide}">?? Open the guide on GitHub</a>
+        <a class="btn" target="_blank" rel="noopener" href="${GUIDE}${mod.guide}">📄 Open the guide on GitHub</a>
       </div>`;
   });
 
   const rb = $('#greadBtn');
-  if (rb) rb.addEventListener('click', () => { markGuideRead(mod.id, !guideRead(mod.id)); toast(guideRead(mod.id) ? 'Guide marked as read � module complete! ??' : 'Guide marked as unread'); render(); });
+  if (rb) rb.addEventListener('click', () => { markGuideRead(mod.id, !guideRead(mod.id)); toast(guideRead(mod.id) ? 'Guide marked as read — module complete! 🎉' : 'Guide marked as unread'); render(); });
 
   store.lastOpen = { mid: mod.id, li: 0 }; save();
   requestAnimationFrame(() => window.scrollTo(0, 0));
@@ -708,7 +708,7 @@ function buildGuideToc() {
   const toc = $('#guideToc');
   if (!toc) return;
   toc.innerHTML = '';
-  if (!mdToc.length) { toc.innerHTML = '<div class="gt-empty">Smooth reading � no section headings in this file.</div>'; return; }
+  if (!mdToc.length) { toc.innerHTML = '<div class="gt-empty">Smooth reading — no section headings in this file.</div>'; return; }
   mdToc.forEach(t => {
     const a = document.createElement('a');
     a.className = 'gt-item lvl' + t.lvl;
@@ -733,17 +733,17 @@ function renderQuiz(mod) {
   const qs = mod.quiz.questions;
   const prevBest = store.quiz[mod.id]; // fractional 0..1
   view.innerHTML = `
-    <div class="crumb reveal"><a href="#/">Dashboard</a> <span>�</span> <a href="#/phase/${mod.id}">${mod.title}</a> <span>�</span> <b>Quiz</b></div>
+    <div class="crumb reveal"><a href="#/">Dashboard</a> <span>›</span> <a href="#/phase/${mod.id}">${mod.title}</a> <span>›</span> <b>Quiz</b></div>
 
     <div class="quiz-top reveal" style="--c:${mod.color}">
       <div>
-        <div class="ph-kicker">Phase ${String(mod.n).padStart(2, '0')} � ${mod.quiz.title}</div>
-        <h1>${mod.icon} ${mod.title} � Quiz</h1>
+        <div class="ph-kicker">Phase ${String(mod.n).padStart(2, '0')} · ${mod.quiz.title}</div>
+        <h1>${mod.icon} ${mod.title} — Quiz</h1>
         <p class="qc-sub">${qs.length} questions. Answer all, get instant feedback + explanations, then save your score.</p>
       </div>
       <div class="quiz-best">
         ${prevBest != null
-          ? `Best: <b>${Math.round(prevBest * qs.length)}/${qs.length}</b> � ${Math.round(prevBest * 100)}%`
+          ? `Best: <b>${Math.round(prevBest * qs.length)}/${qs.length}</b> · ${Math.round(prevBest * 100)}%`
           : 'No score yet'}
       </div>
     </div>
@@ -774,9 +774,9 @@ function renderQuiz(mod) {
   // footer buttons
   const foot = $('#quizFoot');
   foot.innerHTML = `
-    <div class="lf-left"><button class="btn ghost sm" id="resetQuiz">? Reset</button></div>
+    <div class="lf-left"><button class="btn ghost sm" id="resetQuiz">↺ Reset</button></div>
     <div class="lf-right">
-      <button class="btn primary" id="saveScore" disabled>? Save my score</button>
+      <button class="btn primary" id="saveScore" disabled>✓ Save my score</button>
       <a class="btn ghost sm" href="#/phase/${mod.id}">Back to module</a>
     </div>`;
 
@@ -796,7 +796,7 @@ function renderQuiz(mod) {
         const oi = +btn.dataset.oi;
         const correct = oi === qs[qi].a;
         item.dataset.state = correct ? 'right' : 'wrong';
-        prog.textContent = item.dataset.state === 'right' ? '? correct' : '?';
+        prog.textContent = item.dataset.state === 'right' ? '✓ correct' : '✗';
         prog.classList.add(item.dataset.state === 'right' ? 'ok' : 'bad');
 
         $$('.q-opt', item).forEach(o => {
@@ -807,7 +807,7 @@ function renderQuiz(mod) {
         });
         const why = $('.q-why', item);
         why.hidden = false;
-        $('.qw-label', why).textContent = item.dataset.state === 'right' ? '?? That\u2019s right' : '?? Not quite';
+        $('.qw-label', why).textContent = item.dataset.state === 'right' ? '🎉 That\u2019s right' : '🙈 Not quite';
         why.classList.add(item.dataset.state === 'right' ? 'ok' : 'bad');
 
         answered++; if (correct) score++;
@@ -827,8 +827,8 @@ function renderQuiz(mod) {
       store.quiz[mod.id] = pct;
       store.best[mod.id] = Math.round(pct * qs.length);
       save();
-      toast('Score saved � keep it up! ??');
-      saveBtn.textContent = '? Saved � nice work!';
+      toast('Score saved — keep it up! 🏆');
+      saveBtn.textContent = '✓ Saved — nice work!';
       saveBtn.disabled = true;
     }
     renderSidebar();
@@ -883,8 +883,8 @@ document.addEventListener('click', e => {
     if (pre) {
       const txt = pre.innerText;
       (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
-        .then(() => { copy.textContent = '? Copied'; setTimeout(() => copy.textContent = '? Copy', 1400); })
-        .catch(() => { /* fallback select */ const r = document.createRange(); r.selectNodeContents(pre); const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); copy.textContent = '? Copied'; setTimeout(() => copy.textContent = '? Copy', 1400); });
+        .then(() => { copy.textContent = '✓ Copied'; setTimeout(() => copy.textContent = '⧉ Copy', 1400); })
+        .catch(() => { /* fallback select */ const r = document.createRange(); r.selectNodeContents(pre); const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); copy.textContent = '✓ Copied'; setTimeout(() => copy.textContent = '⧉ Copy', 1400); });
     }
   }
 });
@@ -895,7 +895,7 @@ function ensureSearch() {
   if (searchBox) return searchBox;
   searchBox = document.createElement('div');
   searchBox.className = 'search-wrap';
-  searchBox.innerHTML = `<input id="globalQ" type="search" placeholder="Search lessons, concepts, topics�" autocomplete="off" />
+  searchBox.innerHTML = `<input id="globalQ" type="search" placeholder="Search lessons, concepts, topics…" autocomplete="off" />
     <div class="search-results" id="searchRes"></div>`;
   document.body.appendChild(searchBox);
 
@@ -927,24 +927,24 @@ function runSearch() {
     m.lessons.forEach((l, i) => {
       const hay = (m.title + ' ' + m.tagline + ' ' + l.title + ' ' + m.objectives.join(' ') + ' ' + l.blocks.map(bd => bd.x || (bd.items || []).join(' ')).join(' ')).toLowerCase();
       if (hay.includes(q) || m.title.toLowerCase().includes(q)) {
-        results.push({ mod: m, li: i, label: m.title + ' ? ' + l.title });
+        results.push({ mod: m, li: i, label: m.title + ' → ' + l.title });
       }
     });
     m.quiz.questions.forEach(qq => {
       if ((qq.q + ' ' + qq.why).toLowerCase().includes(q)) {
-        results.push({ mod: m, quiz: true, label: `Quiz � ${m.title}: "${qq.q.slice(0, 60)}�"` });
+        results.push({ mod: m, quiz: true, label: `Quiz · ${m.title}: "${qq.q.slice(0, 60)}…"` });
       }
     });
   });
   const seen = new Set(); const uniq = [];
   results.forEach(r => { const k = r.quiz ? 'q' + r.label : r.mod.id + ':' + r.li; if (!seen.has(k)) { seen.add(k); uniq.push(r); } });
-  if (!uniq.length) { wrap.innerHTML = '<div class="sr-empty">No results � try "lead", "flow", "report", "quota"�</div>'; }
+  if (!uniq.length) { wrap.innerHTML = '<div class="sr-empty">No results — try "lead", "flow", "report", "quota"…</div>'; }
   else {
     uniq.slice(0, 10).forEach(r => {
       const a = document.createElement('a');
       a.className = 'sr-item';
       a.href = r.quiz ? '#/quiz/' + r.mod.id : '#/lesson/' + r.mod.id + '/' + r.li;
-      a.innerHTML = `<span class="sr-ico">${r.quiz ? '??' : r.mod.icon}</span><span>${r.label}</span><span class="sr-go">?</span>`;
+      a.innerHTML = `<span class="sr-ico">${r.quiz ? '🧠' : r.mod.icon}</span><span>${r.label}</span><span class="sr-go">→</span>`;
       a.addEventListener('click', closeSearch);
       wrap.appendChild(a);
     });
@@ -1031,7 +1031,7 @@ document.addEventListener('click', e => {
 /* theme toggle */
 const themeBtn = $('#themeToggle');
 if (themeBtn) {
-  themeBtn.textContent = getTheme() === 'dark' ? '??' : '??';
+  themeBtn.textContent = getTheme() === 'dark' ? '🌙' : '☀️';
   themeBtn.addEventListener('click', () => {
     setTheme(getTheme() === 'dark' ? 'light' : 'dark');
   });
