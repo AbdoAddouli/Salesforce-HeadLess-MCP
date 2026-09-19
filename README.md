@@ -26,6 +26,7 @@ An interactive, self-paced learning app for **Salesforce Headless and MCP** — 
   - [Triggers](#triggers)
 - [Deploy to an org](#deploy-to-an-org)
 - [Consistency checks](#consistency-checks)
+- [Additional resources](#additional-resources)
 
 ---
 
@@ -244,6 +245,36 @@ node validate-answers.js   # curriculum exercise ids <-> answers.js keys (15/15)
 ```
 
 Guide rendering and artifact links are validated with lightweight Node helper scripts as part of the development workflow (every `guide:` field resolves to a file in `docs/guide/`, and every artifact href resolves to a real path in the repo).
+
+## Additional resources
+
+Official docs, open-source projects and learning tracks that go deeper on what each phase covers.
+
+**Docs hubs**
+
+- Salesforce Developer docs — all API and platform guides in one place: https://developer.salesforce.com/docs
+- API Library — a bird's-eye overview of every Salesforce API: https://developer.salesforce.com/docs/apis
+- Trailhead — free guided trails, projects and superbadges: https://trailhead.salesforce.com
+
+**By phase topic**
+
+- REST API: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/sforce_rest_api.htm
+- GraphQL API: https://developer.salesforce.com/docs/platform/graphql/overview (68.0 reference: https://developer.salesforce.com/docs/platform/graphql/references/graphql)
+- Bulk API 2.0: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api/asynch_api_intro.htm
+- Platform Events: https://developer.salesforce.com/docs/atlas.en-us.platform_events.meta/platform_events/platform_events_intro.htm
+- Change Data Capture: https://developer.salesforce.com/docs/atlas.en-us.change_data_capture.meta/change_data_capture/cdc_intro.htm
+- Salesforce Connect / OData: https://developer.salesforce.com/docs/atlas.en-us.salesforceconnect.meta/salesforceconnect/salesforce_connect_intro.htm and the Architects' Data Virtualization guide: https://architect.salesforce.com/docs/architect/fundamentals/guide/data-virtualization.html
+- OAuth 2.0 & JWT bearer: https://developer.salesforce.com/docs/atlas.en-us.oauth.meta/oauth/oauth_intro.htm (concepts: https://help.salesforce.com/s/articleView?id=sf.remoteaccess_authenticate.htm)
+- Headless Commerce / Composable Storefront: https://developer.salesforce.com/docs/commerce/commerce-solutions/guide/getting-started.html (PWA Kit + Managed Runtime: https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/intro.html)
+- Serverless / Salesforce Functions: https://developer.salesforce.com/docs/platform/functions/guide/overview
+- MCP (the protocol itself): https://modelcontextprotocol.io
+- MCP Solutions for Salesforce (hosted servers, DX MCP, Agentforce): https://developer.salesforce.com/docs/ai/agentforce/guide/mcp.html
+- Hosted MCP Servers developer guide: https://developer.salesforce.com/docs/platform/hosted-mcp-servers/overview
+
+**Open source**
+
+- `forcedotcom/mcp-hosted` — Salesforce Hosted MCP Servers: https://github.com/forcedotcom/mcp-hosted
+- `salesforcecli/mcp` — Salesforce DX MCP Server (run your org with an LLM): https://github.com/salesforcecli/mcp
 
 ---
 
